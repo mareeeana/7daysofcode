@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desafio 6</title>
+
+</head>
+
+<body>
+    <script>
+
+        const frutasELegumes = [];
+        const laticinios = [];
+        const congelados = [];
+        const doces = [];
+
+        let comida = "";
+        let categoria = "";
+        let adicionar = "sim";
+
+        while (adicionar != "não") {
+
+            //se a lista estiver vazia, apenas pergunte se quer adicionar algo
+            if(frutasELegumes.length === 0 && laticinios.lenght === 0 && congelados.length === 0 && doces.length === 0) {
+                adicionar = prompt("Você deseja adicionar uma comida na sua lista de compras? Responda 'sim' ou 'não'.");
+
+            } else { //se a lista não estiver vazia, dê a opção de remover um item
+                adicionar = prompt("Você deseja adicionar uma comida na sua lista de compras? Responda 'sim', 'não' ou 'remover'.");
+            }
+
+            while (adicionar != "sim" && adicionar != "não" && adicionar != "remover") {
+                alert(`Operação não reconhecida.`);
+
+                adicionar = prompt("Você deseja adicionar uma comida na lista de compras? Responda 'sim' ou 'não'.");
+            }
+
+            if (adicionar === "não") {
+                break; //sair do while
+            }
+
+            if (adicionar === "sim") {
+               
+                comida = prompt("Qual comida você deseja inserir?");
+                categoria = prompt("Em qual categoria essa comida se encaixa: 'frutas e legumes', 'laticínios', 'congelados' ou 'doces'?");
+
+                if (categoria === 'frutas e legumes') {
+                    frutasELegumes.push(comida);
+            
+                } else if (categoria === 'laticínios') {
+                    laticinios.push(comida);
+
+                } else if (categoria === 'congelados') {
+                    congelados.push(comida);
+
+                } else if (categoria === 'doces') {
+                    doces.push(comida);
+
+                } else {
+                    alert(`Essa categoria não foi pré-definida.`);
+                }
+
+            } else if (adicionar === "remover") {
+
+                //se a lista estiver vazia
+                if (frutas.lenght === 0 && laticinios.lenght === 0 && congelados.lenght === 0 % doces.lenght === 0 ) {
+                    alert(`Não há o que remover.`);
+
+                } else {
+
+                    remover = prompt(`Lista de compras:\n Frutas e legumes: ${frutasELegumes}\n Laticínios: ${laticinios}\n Congelados: ${congelados}\n Doces: ${doces}\n\n Qual produto você deseja remover?`);
+
+                    if (frutasELegumes.indexOf(remover) != -1) {
+                        frutasELegumes.splice(frutasELegumes.indexOf(remover), 1);
+                        alert(`O item ${remover} foi removido com sucesso!`);
+
+                    } else if (laticinios.indexOf(remover) != -1) {
+                        laticinios.splice(laticinios.indexOf(remover), 1);
+                        alert(`O item ${remover} foi removido com sucesso!`);
+
+                    } else if (congelados.indexOf(remover) != -1) {
+                        congelados.splice(congelados.indexOf(remover), 1);
+                        alert(`O item ${remover} foi removido com sucesso!`);
+
+                    } else if (doces.indexOf(remover) != -1) {
+                        doces.splice(doces.indexOf(remover), 1);
+                        alert(`O item ${remover} foi removido com sucesso!`);
+
+                    } else {
+                        alert(`Não foi possível encontrar o item dentro da lista!`);
+                    }
+                }
+            }
+        }
+        
+        alert(`Lista de compras:\n Frutas: ${frutasELegumes}\n Laticínios: ${laticinios}\n Congelados: ${congelados}\n Doces: ${doces}`);
+
+    </script>
+
+</body>
+</html>
